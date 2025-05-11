@@ -224,7 +224,10 @@ const DashboardPage = async () => {
 
     return (
         <div className="flex flex-col h-full w-full gap-4 md:gap-6 p-4">
+            <div className="flex w-full justify-between flex-wrap gap-4">
             <h1 className="text-3xl font-bold text-foreground">Welcome, {userData.name}!</h1>
+            <SignOut />
+            </div>
             <div className="flex flex-col overflow-auto h-full w-full pr-4 gap-6">
                 <h2 className="text-2xl font-semibold text-foreground">Investment Overview</h2>
                 {/* Grid layout remains md:grid-cols-2, which will make 4 items 2x2 */}
