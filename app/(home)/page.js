@@ -1,5 +1,6 @@
 // app/(home)/page.js
 import { HomePageComponent } from '@/components/OpenPageComponents'; // Import your HomePageComponent
+import Services from '@/components/Services';
 
 // This component will render for the root path '/' (within the (home) route group)
 export default function HomePage() {
@@ -7,6 +8,7 @@ export default function HomePage() {
     <main>
       {/* Render the HomePageComponent for the root path */}
       <HomePageComponent />
+      <Services/>
     </main>
   );
 }

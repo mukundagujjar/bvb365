@@ -18,13 +18,13 @@ export const AuthProvider = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => { // No 'async' needed here unless you await something inside
       setUser(currentUser);
       setLoading(false);
     });
 
     return () => unsubscribe(); // Clean up the listener
-  }, [pathname, router]); // Re-run effect if pathname or router changes
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, loading }}>

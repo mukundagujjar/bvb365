@@ -1,10 +1,10 @@
 // app/api/login/route.js
-import { adminAuth, adminFirestore } from '@/firebase/firebaseAdmin'; // Import Admin Auth and Firestore
+import { adminAuth, adminFirestore, FieldValue } from '@/firebase/firebaseAdmin'; // Import Admin Auth and Firestore
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
 export async function POST(request) {
-  const { idToken } = await request.json();
+  const { idToken, displayName } = await request.json();
 
   const expiresIn = 60 * 60 * 24 * 5 * 1000; // 5 days
 
@@ -38,13 +38,16 @@ export async function POST(request) {
 
     let isNewUser = false;
 
-    if (!userDocSnap.exists()) {
+    if (!userDocSnap.exists) {
       // 3. Authorized user's first login - Create profile in 'users' collection
       console.log(`Authorized new user: ${userEmail} (UID: ${uid}). Creating profile.`);
       await userDocRef.set({
+        name: displayName || 'New User', // Use displayName if available
         email: userEmail,
         uid: uid, // Store UID explicitly as well
-        createdAt: adminFirestore.FieldValue.serverTimestamp(),
+        createdAt: FieldValue.serverTimestamp(),
+        invtestedAmount: 0,
+        activeSubscription: true,
         // Add other default profile fields as needed
       });
       isNewUser = true;

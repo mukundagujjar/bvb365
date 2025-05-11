@@ -16,7 +16,7 @@ export async function middleware(request) {
     // If accessing a protected route, check ONLY if the session cookie exists
     if (!sessionCookie) {
       // No session cookie found, redirect to the root login page without query params
-      return NextResponse.redirect(new URL('/', request.url));
+      return NextResponse.redirect(new URL('/login', request.url));
     }
     
 

@@ -20,6 +20,7 @@ const SignInWithGoogle = () => {
       // const user = result.user; // Not strictly needed here, token is what matters now
 
       // Step 2: Get ID Token and send to API route for verification and logic
+      const displayName = result.user.displayName;
       const idToken = await auth.currentUser?.getIdToken(); // Use currentUser to be safe
 
       if (!idToken) {
@@ -31,7 +32,7 @@ const SignInWithGoogle = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ idToken }),
+        body: JSON.stringify({ idToken, displayName }),
       });
 
       const data = await response.json();
@@ -49,7 +50,7 @@ const SignInWithGoogle = () => {
         if (data.isNewUser) {
           // API reported new authorized user, redirect to profile creation/welcome
           console.log("API reported new authorized user. Redirecting to Contact.");
-          router.push('/'); // Or '/welcome', '/profile-setup', etc.
+          router.push('/dashboard'); // Or '/welcome', '/profile-setup', etc.
         } else {
           // API reported returning authorized user, redirect to dashboard
           console.log("API reported returning authorized user. Redirecting to Dashboard.");

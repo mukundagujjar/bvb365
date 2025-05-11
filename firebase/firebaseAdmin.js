@@ -1,7 +1,7 @@
 // firebase/firebaseAdmin.js
 import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
-import { getFirestore } from 'firebase-admin/firestore'; // Import getFirestore
+import { getFirestore, FieldValue } from 'firebase-admin/firestore'; // Import getFirestore
 
 // Option 1: Using individual environment variables
 const serviceAccount = {
@@ -39,4 +39,4 @@ const adminAuth = getAuth(adminApp);
 const adminFirestore = getFirestore(adminApp); // Get the Firestore instance
 
 // Export all necessary instances
-export { adminApp, adminAuth, adminFirestore }; // Export adminFirestore
+export { adminApp, adminAuth, adminFirestore, FieldValue }; // Export adminFirestore
