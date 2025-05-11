@@ -573,13 +573,13 @@ const HomePageComponent = () => {
             <section className="flex flex-col w-full lg:w-[90%] lg:flex-row items-center justify-center gap-10 lg:gap-0 mx-auto">
                 <div className="flex flex-col justify-center text-center items-center lg:items-start lg:text-left w-full gap-8">
 
-                    <h1 className="text-4xl/14 md:text-6xl/24 font-black">Invest once,<br /><span className="bg-tertiary px-4 py-1 text-background">profit</span> always</h1>
+                    <h1 className="text-4xl/14 md:text-6xl/24 font-black">Invest once,<br /><span className="bg-tertiary px-4 py-1 text-zinc-800">profit</span> always</h1>
                     <p className="text-lg md:text-2xl font-extralight">Earn upto <span className="font-bold">8% - 10%<span className="text-sm align-super">*</span></span> returns on your investments on a monthly basis
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-between">
                         <GlobalLink href="/contact" title="Contact us" additionalClasses="bg-foreground text-background hover:bg-foreground/90" />
 
-                        <GlobalLink href="/dashboard" title="Client dashboard" additionalClasses="outline outline-2" />
+                        <GlobalLink href="/login" title="Client dashboard" additionalClasses="outline outline-2" />
                     </div>
                     <p className="text-sm text-muted-foreground">* - All returns are subject to market conditions. Please read our legal agreement carefully before any financial dealings and invest wisely.</p>
                 </div>
