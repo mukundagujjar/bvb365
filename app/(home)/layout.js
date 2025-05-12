@@ -15,7 +15,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${bricolageGrotesque.className} p-4 md:p-8 mt-24`}>
+            <body className={`${bricolageGrotesque.className} p-4 md:p-8 mt-24 dark`}>
                 <Navbar />
                 {children}
             </body>

@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Merriweather } from "next/font/google"
+import Image from "next/image"
 
 const NavbarRoutes = [
     { id: 1, title: "Our services", href: "/services" },
@@ -25,14 +26,17 @@ const Navbar = () => {
     const linkStyle = `font-semibold px-4 py-2 rounded-lg`
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 text-primary">
+        <nav className="fixed top-0 left-0 right-0 z-50 text-foreground">
             {/* Main navbar container */}
             <div className="flex items-center justify-between w-full px-8 py-6 bg-background/80 backdrop-blur-xl ">
                 {/* Logo */}
-                {/* <Link href="/" prefetch className={`${NavbarFont.className} text-xl md:text-4xl font-extrabold`}>
-                    Bulls v/s Bears
-                </Link> */}
-                <div></div>
+                <div className="flex items-center justify-center gap-4 select-none cursor-pointer">
+                <Link href="/">
+                <Image src="bvb-nav.svg" alt="logo" width={50} height={50} />
+                </Link>
+                <Link href="/" className="font-black tracking-tight hidden md:block text-3xl">Bulls v/s Bears</Link>
+                </div>
+                
 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex gap-18 items-center justify-self-end ">

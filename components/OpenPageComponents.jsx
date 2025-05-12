@@ -77,7 +77,7 @@ const ServicesPageComponent = () => {
                 services.map((service) => (
                     <div key={service.id} className="flex flex-col gap-4">
                         <h3 className="text-xl md:text-2xl font-semibold">{service.title}</h3>
-                        <p className="font-medium text-foreground text-sm">{service.cost}</p>
+                        <p className="font-medium text-sm bg-amber-400 px-2 py-1 w-fit text-foreground dark:text-background">{service.cost}</p>
                         <ul className="flex flex-col list-disc pl-5 gap-2">
                             {service.description.map((description, index) => (
                                 <li key={index} className="font-light text-sm md:text-base">{description}</li>
@@ -570,10 +570,10 @@ const LegalPageComponent = () => {
 const HomePageComponent = () => {
     return (
         <>
-            <section className="flex flex-col w-full lg:w-[90%] lg:flex-row items-center justify-center gap-10 lg:gap-0 mx-auto">
-                <div className="flex flex-col justify-center text-center items-center lg:items-start lg:text-left w-full gap-8">
+            <section className="flex flex-col w-full lg:w-[95%] lg:flex-row items-center justify-center gap-16 mx-auto">
+                <div className="flex flex-col justify-center text-center items-center lg:items-start lg:text-left w-full gap-8 lg:w-[45%]">
 
-                    <h1 className="text-4xl/14 md:text-6xl/24 font-black">Invest once,<br /><span className="bg-tertiary px-4 py-1 text-zinc-800">profit</span> always</h1>
+                    <h1 className="text-4xl/14 md:text-6xl/24 font-black">Invest once,<br /><span className="bg-chart-4 px-4 py-1 text-foreground dark:text-background">profit</span> always</h1>
                     <p className="text-lg md:text-2xl font-extralight">Earn upto <span className="font-bold">8% - 10%<span className="text-sm align-super">*</span></span> returns on your investments on a monthly basis
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-between">
@@ -583,8 +583,8 @@ const HomePageComponent = () => {
                     </div>
                     <p className="text-sm text-muted-foreground">* - All returns are subject to market conditions. Please read our legal agreement carefully before any financial dealings and invest wisely.</p>
                 </div>
-                <div className="flex-col items-center justify-center w-full hidden lg:flex">
-                    <Image src="bvb-hero.svg" alt="hero" width={"450"} height={"450"} />
+                <div className="flex-col items-center justify-center w-full hidden lg:flex lg:w-[55%]">
+                    <Image src="bvb-hero.svg" alt="hero" width={900} height={500} />
                 </div>
             </section>
         </>

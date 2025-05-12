@@ -9,13 +9,13 @@ export default function Services() { // Changed to a named export, common practi
     // Removed unused useState for hover and hover2
 
     return (
-        <div className="flex flex-col w-full justify-center py-12 md:py-16"> {/* Added some padding y for overall section */}
+        <div className="flex flex-col w-full justify-center"> {/* Added some padding y for overall section */}
             <div className="flex flex-col w-full px-4 lg:w-3/4 mx-auto gap-8 items-center justify-center">
                 <h2 className="text-4xl font-bold text-center">Services we offer</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full"> {/* Added w-full for grid container */}
                     {/* Trading Education Card */}
-                    <div className={`flex flex-col h-full select-none cursor-pointer outline outline-purple-500 outline-2 outline-offset-4 p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg`}> {/* Replaced Card */}
+                    <div className={`flex flex-col h-full select-none cursor-pointer outline-purple-500 outline-2 outline-offset-4 p-6 rounded-lg shadow-lg`}> {/* Replaced Card */}
                         {/* CardHeader equivalent */}
                         <div className="mb-4">
                             <div className="flex items-center gap-2 mb-2">
@@ -63,7 +63,7 @@ export default function Services() { // Changed to a named export, common practi
                     </div>
 
                     {/* Investments Card */}
-                    <div className={`flex flex-col h-full select-none cursor-pointer outline outline-blue-500 outline-2 outline-offset-4 p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg`}> {/* Replaced Card */}
+                    <div className={`flex flex-col h-full select-none cursor-pointer outline-blue-500 outline-2 outline-offset-4 p-6 rounded-lg shadow-lg`}> {/* Replaced Card */}
                         {/* CardHeader equivalent */}
                         <div className="mb-4">
                             <div className="flex items-center gap-2 mb-2">

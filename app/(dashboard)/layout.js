@@ -11,8 +11,8 @@ const DashboardLayout = async ({ children }) => {
 
     return (
         <html lang="en">
-            <body className={`${bricolageGrotesque.className}`}>
-                <div className="flex flex-col p-4 h-dvh w-full overflow-hidden">
+            <body className={`${bricolageGrotesque.className} dark`}>
+                <div className="flex flex-col h-dvh w-full overflow-hidden">
                     {/* <Sidebar /> */}
                     {/* <div className="flex flex-col h-dvh w-full overflow-hidden p-4"> */}
                         {children}

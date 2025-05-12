@@ -1,6 +1,6 @@
 // app/components/SignInWithGoogle.js (or wherever it is)
 "use client";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebaseConfig"; // Your client auth instance
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -64,7 +64,7 @@ const SignInWithGoogle = () => {
       // Handle errors during the Google Sign-in process itself
       // alert(`Sign-in failed: ${error.message}`); // Basic error display
       // Ensure user is signed out on client-side errors during sign-in process
-      await auth.signOut();
+      await signOut(auth);
     } finally {
       setLoading(false); // Always turn off loading when process finishes (either success or error)
     }
@@ -73,7 +73,7 @@ const SignInWithGoogle = () => {
   return (
     <button
       onClick={handleSignIn}
-      className="flex items-center justify-center gap-3 px-4 py-2 md:px-8 md:py-4 cursor-pointer bg-muted rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[200px] md:min-w-[260px] lg:text-lg min-h-[40px] md:min-h-[60px]"
+      className="flex items-center justify-center gap-3 px-4 py-2 md:px-8 md:py-4 cursor-pointer bg-muted text-muted-foreground rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[200px] md:min-w-[260px] lg:text-lg min-h-[40px] md:min-h-[60px]"
       disabled={loading} // Disable button while loading
     >
       {loading ? (

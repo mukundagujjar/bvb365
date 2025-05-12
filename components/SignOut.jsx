@@ -3,8 +3,11 @@ import { signOut } from 'firebase/auth';
 import { auth } from "@/firebase/firebaseConfig";
 import { useState } from "react";
 import { Loader } from 'lucide-react';
+import { useRouter } from "next/navigation";
+
 const SignOut = () => {
     const [isLoggingOut, setIsLoggingOut] = useState(false);
+    const router = useRouter();
     const handleLogout = async () => {
         setIsLoggingOut(true);
         try {
@@ -34,7 +37,7 @@ const SignOut = () => {
     };
     return (
         <button
-            className="font-bold py-2 px-4 rounded-lg bg-foreground text-background w-full md:w-fit"
+            className="flex items-center justify-center gap-3 px-4 py-2 cursor-pointer bg-muted rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[180px] lg:text-lg min-h-[40px]"
             onClick={handleLogout}
         >
             {isLoggingOut ? (

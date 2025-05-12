@@ -1,4 +1,4 @@
-const { default: SignInWithGoogle } = require("@/components/SignInWithGoogle");
+import SignInWithGoogle from "@/components/SignInWithGoogle";
 
 const LoginPage = () => {
   return (
