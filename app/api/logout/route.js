@@ -4,7 +4,7 @@ import { cookies } from 'next/headers'; // Access cookies in App Router server c
 import { adminAuth } from '@/firebase/firebaseAdmin'; // Optional: Revoke token server-side
 
 export async function POST(request) {
-   const cookieStore = cookies();
+   const cookieStore = await cookies();
    const sessionCookie = cookieStore.get('__session')?.value;
 
    // Optional: Revoke the session cookie server-side (requires Admin SDK)
