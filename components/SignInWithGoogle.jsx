@@ -73,7 +73,7 @@ const SignInWithGoogle = () => {
   return (
     <button
       onClick={handleSignIn}
-      className="flex items-center justify-center gap-3 px-4 py-2 md:px-8 md:py-4 cursor-pointer bg-muted text-muted-foreground rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[200px] md:min-w-[260px] lg:text-lg min-h-[40px] md:min-h-[60px]"
+      className="flex items-center justify-center gap-3 px-4 py-2 md:px-8 md:py-4 cursor-pointer bg-muted text-muted-foreground rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[200px] md:min-w-[260px] min-h-[40px] md:min-h-[60px] md:text-2xl"
       disabled={loading} // Disable button while loading
     >
       {loading ? (

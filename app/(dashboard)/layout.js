@@ -1,6 +1,7 @@
 import { Bricolage_Grotesque } from "next/font/google";
 import "../globals.css";
-import Sidebar from "@/components/Sidebar";
+import { AuthProvider } from "@/app/context/AuthContext";
+import Navbar from "@/components/Navbar";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-bricolage-grotesque",
@@ -12,12 +13,14 @@ const DashboardLayout = async ({ children }) => {
     return (
         <html lang="en">
             <body className={`${bricolageGrotesque.className} dark`}>
+                <AuthProvider>
                 <div className="flex flex-col h-dvh w-full overflow-hidden">
-                    {/* <Sidebar /> */}
+                    <Navbar/>
                     {/* <div className="flex flex-col h-dvh w-full overflow-hidden p-4"> */}
                         {children}
                     {/* </div> */}
                 </div>
+                </AuthProvider>
                 {/* <Analytics /> */}
             </body>
         </html>

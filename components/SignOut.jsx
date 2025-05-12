@@ -37,7 +37,7 @@ const SignOut = () => {
     };
     return (
         <button
-            className="flex items-center justify-center gap-3 px-4 py-2 cursor-pointer bg-muted rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[180px] lg:text-lg min-h-[40px]"
+            className="flex items-center justify-center gap-3 px-4 py-2 cursor-pointer bg-muted rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[180px] min-h-[40px] md:text-2xl"
             onClick={handleLogout}
         >
             {isLoggingOut ? (
