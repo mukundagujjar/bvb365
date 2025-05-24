@@ -15,7 +15,7 @@ const DashboardLayout = async ({ children }) => {
             <body className={`${bricolageGrotesque.className} dark`}>
                 <AuthProvider>
                 <div className="flex flex-col h-dvh w-full overflow-hidden">
-                    <Navbar/>
+                  
                     {/* <div className="flex flex-col h-dvh w-full overflow-hidden p-4"> */}
                         {children}
                     {/* </div> */}
