@@ -33,6 +33,7 @@ const homeRoutes = [
 export async function generateStaticParams() {
     return homeRoutes
         .map((individualRoute) => {
+            
             const segment = individualRoute.href
             return {
                 route: segment

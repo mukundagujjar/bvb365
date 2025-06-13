@@ -1,33 +1,42 @@
-// app/context/AuthContext.js
 "use client";
 
 import { createContext, useContext, useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '@/firebase/firebaseConfig'; // Your Firebase client auth instance
+import { auth } from '@/firebase/firebaseConfig';
 import { usePathname, useRouter } from 'next/navigation';
 
-// Define protected routes (can also be done in middleware config)
-const PROTECTED_ROUTES = ['/dashboard', '/profile']; // Example
+const PROTECTED_ROUTES = ['/dashboard', '/profile'];
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [authChecked, setAuthChecked] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => { // No 'async' needed here unless you await something inside
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      setAuthChecked(true);
+
+      // Auto-redirect logic
+      if (currentUser && pathname === '/login') {
+        // User is authenticated and on login page, redirect to dashboard
+        router.push('/dashboard');
+      } else if (!currentUser && PROTECTED_ROUTES.some(route => pathname.startsWith(route))) {
+        // User is not authenticated but trying to access protected route
+        router.push('/login');
+      }
     });
 
-    return () => unsubscribe(); // Clean up the listener
-  }, []);
+    return () => unsubscribe();
+  }, [pathname, router]);
 
   return (
-    <AuthContext.Provider value={{ user, loading }}>
+    <AuthContext.Provider value={{ user, loading, authChecked }}>
       {children}
     </AuthContext.Provider>
   );

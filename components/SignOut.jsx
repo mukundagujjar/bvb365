@@ -6,10 +6,10 @@ import { Loader } from 'lucide-react';
 import { useRouter } from "next/navigation";
 
 const SignOut = () => {
-    const [isLoggingOut, setIsLoggingOut] = useState(false);
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
     const handleLogout = async () => {
-        setIsLoggingOut(true);
+        setLoading(true);
         try {
             // 1. Call the backend API to clear the session cookie and revoke tokens
             const response = await fetch('/api/logout', {
@@ -32,20 +32,24 @@ const SignOut = () => {
         } catch (error) {
             console.error("Error during logout:", error);
         } finally {
-            setIsLoggingOut(false);
+            setLoading(false);
         }
     };
     return (
         <button
-            className="flex items-center justify-center gap-3 px-4 py-2 cursor-pointer bg-muted rounded-lg transition-colors ease-in-out duration-200 font-semibold min-w-[180px] min-h-[40px] md:text-2xl"
-            onClick={handleLogout}
-        >
-            {isLoggingOut ? (
-                <Loader className="animate-spin h-5 w-5" />
-            ) : (
-                "Sign Out"
-            )}
-        </button>
+      onClick={handleLogout}
+      className="flex items-center justify-center gap-3 px-4 py-2 cursor-pointer bg-muted text-muted-foreground rounded-lg transition-colors ease-in-out duration-200 font-semibold relative"
+      disabled={loading} // Disable button while loading
+    >
+      <span className={`flex items-center gap-3 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+        Sign Out
+      </span>
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Loader className="w-5 h-5 animate-spin" />
+        </div>
+      )}
+    </button>
     );
 };
 
