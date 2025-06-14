@@ -579,7 +579,7 @@ const HomePageComponent = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-between">
                         <GlobalLink href="/contact" title="Contact us" additionalClasses="bg-foreground text-background hover:bg-foreground/90" />
 
-                        <GlobalLink href="/login" title="Client dashboard" additionalClasses="outline outline-2" />
+                        <GlobalLink href="/login" title="Dashboard" additionalClasses="outline outline-2" />
                     </div>
                     <p className="text-sm text-muted-foreground">* - All returns are subject to market conditions. Please read our legal agreement carefully before any financial dealings and invest wisely.</p>
                 </div>
